@@ -1,0 +1,87 @@
+// Mixins
+//================================================================================
+
+// Horizontal List Position
+//================================================================================
+@mixin hor-list-pos($position){
+	margin:0;
+	@if $position == center{
+		text-align:center;
+	} @else if $position == left{
+		text-align:left;
+	} @else if $position == right{
+		text-align:right;
+	}
+	&>li{
+		margin:0;
+		display:inline-block;
+		*display:inline;
+		zoom:1;
+	}
+}
+
+// Font Size
+//================================================================================
+@function calculatePxm($size) {
+  	@return $size * 1px;
+}
+
+@function calculateRem($size) {
+  	$remSize: calculatePxm($size) / calculatePxm($font-size__base);
+  	@return $remSize * 1rem;
+}
+
+@function calculateEm($size) {
+  	$remSize: calculatePxm($size) / calculatePxm($font-size__base);
+  	@return $remSize * 1em;
+}
+
+@mixin font-size($size, $type: em) {
+	font-size: calculatePxm($size);
+	@if $type == em{
+		font-size: calculateEm($size);
+	} @else if $type == rem{
+		font-size: calculateRem($size);
+	}
+}
+// Clearfix
+//================================================================================
+@mixin clearfix() {
+	content: "";
+	display: table;
+}
+
+// Media Queries
+//================================================================================
+@mixin media-query($beakpoint){
+	@media screen and (min-width: $beakpoint) { @content }
+}
+
+// Opactity
+//================================================================================
+@mixin opacity($opacity: 0.5) {
+    filter:         alpha(opacity=($opacity * 100));
+    -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")";
+    -moz-opacity:   $opacity;
+    -khtml-opacity: $opacity;
+    opacity:        $opacity;
+}
+
+// Aspect Ratio
+//================================================================================
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

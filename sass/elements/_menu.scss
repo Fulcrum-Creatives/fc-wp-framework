@@ -1,0 +1,61 @@
+/* Nav Menu
+================================================================================*/
+.sm {
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+    direction: ltr;
+    &.horizontal {
+		&.right {
+			@include hor-list-pos(right);
+		}
+		&.left {
+			@include hor-list-pos(left);
+		}
+		&.center {
+			@include hor-list-pos(center);
+		}
+		li {
+			vertical-align: top;
+		}
+	}
+	ul {
+	    position: absolute;
+	    top: -999999px;
+	    width: auto;
+	    text-align: left;
+	    padding: 0;
+	    list-style-type: none;
+	    li {
+	    	float: none;
+	    }
+	    a {
+	    	white-space: normal;
+	    }
+	    &.sm-nowrap > li > a {
+	    	white-space: nowrap;
+	    }
+	}
+	&> li {
+		position: relative;
+	    float: none;
+	    display: inline-block
+	}
+	a {
+		position: relative;
+	    display: block;
+	    white-space: nowrap;
+	}
+	&:after {
+		content: "\00a0";
+	    display: block;
+	    height: 0;
+	    font: 0/0 serif;
+	    clear: both;
+	    visibility: hidden;
+	    overflow: hidden;
+	}
+}
+@import "mobile-menu/menu-dropdown";

@@ -1,0 +1,45 @@
+/* Menu Icon
+================================================================================*/
+$menu_icon_border_width: 1px;
+$menu_icon_border_type: solid;
+$menu_icon_border_radius: 5px;
+$menu_icon_padding: 3px;
+$menu_icon_width: 30px + $menu_icon_padding;
+$menu_icon_height: 30px + $menu_icon_padding;
+$menu_line_height: 6px;
+$menu_top_line_height: 9px;
+$menu_bottom_line_height: 18px;
+$menu_line_radius: 6px;
+$menu_line_color: #333;
+.menu__icon {
+	padding: $menu_icon_padding;
+	width: $menu_icon_width;
+	height: $menu_icon_height;
+	border: $menu_icon_border_width $menu_icon_border_type $menu_line_color;
+	border-radius: $menu_icon_border_radius;
+    .inner {
+    	width: 100%;
+	    height: $menu_line_height;
+	    background-color: $menu_line_color;
+	    border-radius: $menu_line_radius;
+	    position: relative;
+	    &:after,
+	    &:before {
+	    	content: '';
+		    width: 100%;
+		    height: $menu_line_height;
+		    background-color: $menu_line_color;
+		    border-radius: $menu_line_radius;
+		    position: absolute;
+	    }
+	    &:after {
+	    	top: $menu_top_line_height;
+	    }
+	    &:before {
+	    	top: $menu_bottom_line_height;
+	    }
+    }
+    &:hover {
+    	cursor: pointer;
+    }
+}

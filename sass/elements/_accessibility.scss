@@ -1,0 +1,15 @@
+/* Accessibility
+================================================================================*/
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.ir {
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+	width: 0;
+}

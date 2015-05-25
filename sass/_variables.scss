@@ -1,0 +1,51 @@
+// Layout
+//================================================================================
+$susy: (
+  global-box-sizing: border-box,
+  columns: 12,
+  gutters: 0,
+  gutter-position: inside,
+);
+$gutter: 0.5em;
+$section-bottom-margin: 1em;
+$aside-width: span(3);
+// Colors
+//================================================================================
+// text colors
+$color__font: #333;
+$color__header: #333;
+// link colors
+$color__link: #333;
+$color__link-hover: #333;
+$color__link-visited: #333;
+// color pallete
+
+
+// Typography
+//================================================================================
+$font-size__base: 16;
+// The default font family.
+$font-family__base: sans-serif !default;
+// The font sizes for h1-h6.
+$font-size__h1: 2    * $font-size__base !default;
+$font-size__h2: 1.5  * $font-size__base !default;
+$font-size__h3: 1.17 * $font-size__base !default;
+$font-size__h4: 1    * $font-size__base !default;
+$font-size__h5: 0.83 * $font-size__base !default;
+$font-size__h6: 0.67 * $font-size__base !default;
+// Media Queries
+//================================================================================
+// Convert px to em
+@function em($pixels, $context: $font-size__base) {
+    @return #{$pixels/$context}em;
+}
+$phone: em(480);
+$tablet: em(768);
+$desktop: em(1024);
+$breakpoints: (phone: $phone, tablet: $tablet, desktop: $desktop) !default;
+$media-expressions: (all: "all",
+					 print: "print", 
+					 screen: "screen",
+                     retina2x: ("(min-device-pixel-ratio: 2)", "(min-resolution: 192dpi)"), 
+                     retina3x: ("(min-device-pixel-ratio: 3)", "(min-resolution: 350dpi)")
+                    ) !default;
